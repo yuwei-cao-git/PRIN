@@ -10,3 +10,6 @@ lib
 data/
 results/
 *_processed/
+
+
+*.ipynb
