@@ -6,10 +6,13 @@ lib
 
 *.txt
 *.las
+*.npy
+*.ply
+*.e57
 
 data/
 results/
 *_processed/
-
+*data/
 
 *.ipynb
