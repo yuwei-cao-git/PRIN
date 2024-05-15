@@ -22,14 +22,14 @@ label_df.to_csv(filename, index=False)
 # label_df.to_csv("./data/mantua_labelled_wp1.labels", index=False)
 ```
 
-For the training set:
+For the training & test set:
 ```
 python semantic3d_prepare_data.py --rootdir ./data
 ```
 
-For the test set:
+For only the test set: (use it when you want to test on another data)
 ```
-python semantic3d_prepare_data.py --rootdir ./data--test
+python semantic3d_prepare_data_test.py --rootdir ./data
 ```
 
 ## Training
@@ -43,7 +43,7 @@ python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --sav
 ```
 ### use mapped npm3d dataset to train and then use mantua_labelled_wp1 to finetuning 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_pretrained_nmp/ --nocolor --restore
+python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_Mantua --nocolor --restore --epoch 15
 ```
 
 ## Testing

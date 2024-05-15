@@ -30,22 +30,15 @@ def wgreen(str):
 def wred(str):
     return bcolors.FAIL+str+bcolors.ENDC
 
-'''
+
+#filelist_train=["Lille1",  "Lille2",  "Paris", "mantua_labelled_wp1_centred"]
 filelist_train=[
-        "Lille1",  "Lille2",  "Paris",
-    ]
-'''
-filelist_train=[
-        "Lille1",  "Lille2",  "Paris",
+        "mantua_labelled_wp1_centred"
     ]
 filelist_test = [
-        "mantua_x120_1_xyzrgb"
+        "stonex_partial"
         ]
-'''
-filelist_test = [
-        "Agliate_outdoor_1_xyznirgbr",
-        "Agliate_outdoor_2_xyznirgbr"]
-'''
+
 print("Creating train directories...", end="", flush=True)
 savedir = os.path.join(args.savedir, "train", "pointcloud_txt")
 os.makedirs(savedir, exist_ok=True)

@@ -251,13 +251,29 @@ def main():
     root_folder = os.path.join(args.savedir, "{}_{}_nocolor{}_drop{}_{}".format(
             args.model, args.npoints, args.nocolor, args.drop, time_string))
 
+    """
+    # only train with mapped npm3d
     filelist_train=[
         "Lille1_voxels.npy",
         "Lille2_voxels.npy",
         "Paris_voxels.npy",
     ]
+    
+    
+    # use mapped npm3d and mantua_wp1 as training data
+    filelist_train=[
+        "Lille1_voxels.npy",
+        "Lille2_voxels.npy",
+        "Paris_voxels.npy",
+        "mantua_labelled_wp1_voxels.npy",
+    ]
+    """
+    # finetuning using partial labels of mantua
+    filelist_train=[
+        "mantua_labelled_wp1_centred_voxels.npy",
+    ]
     filelist_test = [
-        "stonex_tutte_voxels.npy"]
+        "stonex_partial_voxels.npy"]
 
     N_CLASSES = 14
 
@@ -270,6 +286,7 @@ def main():
     else:
         net = get_model(args.model, input_channels=3, output_channels=N_CLASSES, args=args)
         net = net.to(device)
+
     if args.test:  
         net.load_state_dict(torch.load(os.path.join(args.savedir, "state_dict.pth"), map_location=device))
     if args.restore:
@@ -279,7 +296,7 @@ def main():
         model_dict = net.state_dict()
         model_dict.update(matched_weights)
         net.load_state_dict(model_dict)
-    print("Done")
+    print("Pretrained model loading...Done")
 
     ##### TRAIN
     if not args.test:
