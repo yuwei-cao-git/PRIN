@@ -1,0 +1,12 @@
+.ipynb
+__pycache__
+.vscode
+build
+lib
+
+*.txt
+*.las
+
+data/
+results/
+*_processed/
