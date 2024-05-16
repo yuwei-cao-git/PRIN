@@ -35,15 +35,15 @@ python semantic3d_prepare_data_test.py --rootdir ./data
 ## Training
 ### use mapped npm3d dataset to train 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_NPM/ --nocolor
+python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_NPM/ --nocolor --dataset "MNPM"
 ```
 ### use mapped npm3d dataset + mantua_labelled_wp1 to train 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_MMNPM/results --nocolor
+python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_MMNPM/results --nocolor --dataset "MMNPM"
 ```
 ### use mapped npm3d dataset to train and then use mantua_labelled_wp1 to finetuning 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_Mantua --nocolor --restore --epoch 15
+python semantic3d_seg.py --rootdir ./semantic3d_processed/train/pointcloud --savedir ./results/SegBig_nocolor_Mantua --nocolor --restore --epoch 15 --dataset "Mantua"
 ```
 
 ## Testing
@@ -57,7 +57,8 @@ python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --save
 ```
 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --savedir ./results/SegBig_nocolor_pretrained_nmp/SegBig_8192_nocolor_FT --nocolor --restore --test --savepts
+python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --savedir ./results/SegBig_nocolor_Mantua/SegBig_8192_nocolor_pretrained_SN_FT --nocolo
+r --test --savepts
 ```
 
 ```

@@ -245,35 +245,40 @@ def main():
     parser.add_argument("--test_step", default=0.8, type=float)
     parser.add_argument("--model", default="SegBig", type=str)
     parser.add_argument("--drop", default=0.5, type=float)
+    parser.add_argument("--dataset", default="MNPM", choices=["MNPM", "Mantua", "MMNPM"], 
+                        help="data used for training", type=str)
     args = parser.parse_args()
 
     time_string = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     root_folder = os.path.join(args.savedir, "{}_{}_nocolor{}_drop{}_{}".format(
             args.model, args.npoints, args.nocolor, args.drop, time_string))
 
-    """
+
     # only train with mapped npm3d
-    filelist_train=[
-        "Lille1_voxels.npy",
-        "Lille2_voxels.npy",
-        "Paris_voxels.npy",
-    ]
+    if args.dataset== "MNPM":
+        filelist_train=[
+            "Lille1_voxels.npy",
+            "Lille2_voxels.npy",
+            "Paris_voxels.npy",
+        ]
     
-    
-    # use mapped npm3d and mantua_wp1 as training data
-    filelist_train=[
-        "Lille1_voxels.npy",
-        "Lille2_voxels.npy",
-        "Paris_voxels.npy",
-        "mantua_labelled_wp1_voxels.npy",
-    ]
-    """
     # finetuning using partial labels of mantua
-    filelist_train=[
-        "mantua_labelled_wp1_centred_voxels.npy",
-    ]
+    elif args.dataset=="Mantua":
+        filelist_train=[
+            "mantua_labelled_wp1_centred_voxels.npy",
+        ]
+
+    # use mapped npm3d and mantua_wp1 as training data
+    else:
+        filelist_train=[
+            "Lille1_voxels.npy",
+            "Lille2_voxels.npy",
+            "Paris_voxels.npy",
+            "mantua_labelled_wp1_centred_voxels.npy",
+        ]
+    
     filelist_test = [
-        "stonex_partial_voxels.npy"]
+        "mantua_test_centred_voxels.npy"]
 
     N_CLASSES = 14
 

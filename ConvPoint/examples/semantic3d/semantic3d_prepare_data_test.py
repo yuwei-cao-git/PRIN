@@ -31,7 +31,7 @@ def wred(str):
     return bcolors.FAIL+str+bcolors.ENDC
 
 filelist_test = [
-        "stonex_tutte_centred",]
+        "mantua_test_centred",]
 
 print("Creating test directories...", end="", flush=True)
 savedir = os.path.join(args.savedir, "test", "pointcloud_txt")
