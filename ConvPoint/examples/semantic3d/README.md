@@ -53,7 +53,7 @@ python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --save
 ```
 
 ```
-python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --savedir ./results/SegBig_nocolor_MMNPM/ --nocolor --test --savepts
+python semantic3d_seg.py --rootdir ./semantic3d_processed/test/pointcloud --savedir ./results/SegBig_nocolor_Mantua/SegBig_8192_nocolor_MMNPM/ --nocolor --test --savepts
 ```
 
 ```

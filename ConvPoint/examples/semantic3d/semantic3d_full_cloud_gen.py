@@ -14,17 +14,14 @@ def load_label_semantic3d(filename):
 
 pc_paths = [
 		'./data/stonex_tutte.txt',
-        './data/mantua_x120_1_xyzrgb.txt',
-        './data/mantua_x120_1_xyzrgb.txt',
 ]
 
 for pc_path in pc_paths:
-	pc_path = './data/stonex_tutte.txt'
 	pc = load_pc_semantic3d(pc_path)
 	file_name = pc_path.split('/')[-1][:-4]
 
 	# check if label exists
-	label_path = join('./results/SegBig_nocolor/results', file_name + '_benchmark.label')
+	label_path = join('./results/SegBig_nocolor_Mantua/SegBig_8192_nocolor_MMNPM/results', file_name + '_benchmark.label')
 	labels = load_label_semantic3d(label_path)
 
 	full_ply_path = join(dirname(label_path), file_name + '_full_cloud.ply')

@@ -11,8 +11,7 @@ parser.add_argument("--reflabel", type=str, default="./results")
 args = parser.parse_args()
 
 filenames = [
-        ["mantua_x120_2_xyzrgb", "mantua_x120_2_xyzrgb_benchmark.label"],
-        ["mantua_x120_1_xyzrgb", "mantua_x120_1_xyzrgb_benchmark.label"],
+        ["stonex_tutte", "stonex_tutte_benchmark.label"],
 ]
 
 os.makedirs(args.savedir, exist_ok=True)

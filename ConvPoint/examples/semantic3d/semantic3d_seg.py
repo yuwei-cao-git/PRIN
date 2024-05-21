@@ -278,7 +278,7 @@ def main():
         ]
     
     filelist_test = [
-        "mantua_test_centred_voxels.npy"]
+        "stonex_tutte_voxels.npy"]
 
     N_CLASSES = 14
 
