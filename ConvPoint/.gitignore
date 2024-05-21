@@ -3,6 +3,9 @@ __pycache__
 .vscode
 build
 lib
+.ipynb_checkpoints
+*.pyd
+*PKG-INFO
 
 *.txt
 *.las
